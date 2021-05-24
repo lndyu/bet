@@ -1,0 +1,11 @@
+import datetime
+class Profile:
+    def __init__(self, name, dob):
+        self.name = name
+        self.dob = dob
+        self.joined = datetime.datetime.now()
+
+
+        leo sucks huge dick
+    def getDOB(self):
+        return print()
