@@ -2,7 +2,8 @@
 import datetime
 class Profile:
     users = 0
-    def __init__(self, name, dob):
+    def __init__(self, name, dob, username):
+        self.username = username
         self.name = name
         self.dob = dob
         self.joined = datetime.datetime.now()
@@ -11,7 +12,6 @@ class Profile:
         self.trust = Trust(self)
 
         Profile.users += 1
-
 
     # Adds friends to friend list, need to implement an accept/decline system as well
     def add_friend(self, friend):
