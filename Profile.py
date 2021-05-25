@@ -1,12 +1,17 @@
+# Profile in the obvious sense
 import datetime
 class Profile:
+    users = 0
     def __init__(self, name, dob):
         self.name = name
         self.dob = dob
         self.joined = datetime.datetime.now()
         self.friends = []
-        self.feed = [] # this needs to be dynamically retrieved, we can't display entire array on demand
-        self.trust = Trust()
+        self.feed = [] # this needs to be dynamically retrieved, we can't display the entire list on demand
+        self.trust = Trust(self)
+
+        Profile.users += 1
+
 
     # Adds friends to friend list, need to implement an accept/decline system as well
     def add_friend(self, friend):
