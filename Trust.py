@@ -1,5 +1,5 @@
 # Contains trust system information
-class Trust(Profile):
+class Trust:
     def __init__(self, profile):
         self.profile = profile 
 
