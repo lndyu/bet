@@ -1,4 +1,1 @@
-# bet
-bet
-aefawef
-43423432334
+im tryna duck a bitch

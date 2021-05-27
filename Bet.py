@@ -1,43 +1,44 @@
 # 
 class Bet(Event):
-    def __init__(self, description, author):
-        super().__init___()
-        self.description = description
-        self.party = Parties()
-        self.author = author
-        self.winner = -1 #0: undecided, 1 or 2: group 1 or group 2
+    def __init__(self, description):
+        super().__init___(description)
 
-    # Adds arbitrator to list of arbitrators iff they aren't a stakeholder
+        self.won = []
+        self.arbitrators = []
+        self.stakeholders = {} 
+
+    # Adds arbitrator iff they aren't a stakeholder
     def add_arbitrator(self, profile) :
-        self.party.add_arbitrator(profile)
+        if profile not in self.stakeholders:
+            self.arbitrators.append(profile)
+            REMOVE_OPTION OF BECOMING AN ARBITRATOR
+        else :
+            SEND NOTIFICATION "You're already a stakeholder"
 
-    # Removes arbitrator 
+    # Adds stakeholder iff they aren't an arbitrator   
+    def add_stakeholder(self, profile, stake):
+        if profile not in self.arbitrators:
+            self.stakeholders[profile] = stake # stakeholders is a collection of profile object, string pairs
+            REMOVE OPTION OF BECOMING A STAKEHOLDER
+        else:
+            SEND NOTIFICATION "You're already an Arbitrator"
+
+    # Removes arbitrator. 
     def remove_arbitrator(self, profile) :
-        self.party.remove_arbitrator
-
-    # Remove stakeholder
-    def remove_stakeholder(self, profile) :
-        self.party.remove_stakeholder(profile)
-
-    # Adds stakeholder to pool and stores their stake
-    def add_stakeholder(self, profile, stake, side): #side given by 1 or 2
-        self.party.add_stakeholder(side,profile,stake)
-
-    # Gives information about all parties involved, stakes, etc..
-    def current_information(self):
-        if(self.event_status = 0):
-            return [self.description, self.party, "In progress..."]
-        elif(self.event_status = 1):
-            return [self.description, self.party, self.winner, "Completed"]
+        self.arbitrators.remove(profile)
     
-    # Updates with winner and loser
-    def update_results(self,winner): #winner is 1 or 2
-        self.winner = winner
-        self.update_status()
-    
-    # Invite arbitrator
-    def invite_arbitrator(self, profile) :
 
-    # Invite stakeholder
-    def invite_stakeholder(self, profile) :
-    
+    # display info
+    def display_info() :
+        DISPLAY DESCRIPTION
+        DISPLAY STAKEHOLDERS
+        DISPLAY ARBITRATORS 
+
+    # display choices
+    def display_choices() :
+        JOIN
+            JOIN AS ARBITRATOR
+            JOIN AS STAKEHOLDER
+        DECLINE 
+
+
